@@ -6,6 +6,7 @@
 asdadasasa
 asdasda
 afsafa
+<<<<<<< HEAD
 =======
 asnlnllkqwemkl;;l
 ;k;.,./m;lk;lk;l
@@ -24,3 +25,8 @@ afsafa
 
 asdasdas
 >>>>>>> e8412bd... master test
+=======
+
+
+asdasdas
+>>>>>>> 5fcff47... tj test
