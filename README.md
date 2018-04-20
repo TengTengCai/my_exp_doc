@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 asdadasasa
 asdasda
@@ -42,3 +43,11 @@ asdasfas
 >>>>>>> 3a79987... tj test
 =======
 >>>>>>> 188ee14... master test1
+=======
+sadasfa
+js kjs 
+nfopmm;f,lp19weiwejr
+asmfdopm2o-j-o2[wekowef]k	wfipifop
+wmonwfpnwf2fwnoenrn
+w;fomopwmpowmomp
+>>>>>>> db6f6d3... master asgmnad
