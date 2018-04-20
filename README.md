@@ -39,6 +39,7 @@ asdasdas
 
 asdasda
 adasfasad
+<<<<<<< HEAD
 asdasfas
 >>>>>>> 3a79987... tj test
 =======
@@ -51,3 +52,6 @@ asmfdopm2o-j-o2[wekowef]k	wfipifop
 wmonwfpnwf2fwnoenrn
 w;fomopwmpowmomp
 >>>>>>> db6f6d3... master asgmnad
+=======
+asdas
+>>>>>>> ff51616... master asdm
