@@ -2,6 +2,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 asdadasasa
 asdasda
@@ -39,3 +40,5 @@ asdasda
 adasfasad
 asdasfas
 >>>>>>> 3a79987... tj test
+=======
+>>>>>>> 188ee14... master test1
