@@ -21,12 +21,21 @@ asdas
 asdadasasa
 asdasda
 afsafa
-
+sdas
+adasdas
+asdas
 
 asdasdas
+<<<<<<< HEAD
 >>>>>>> e8412bd... master test
 =======
 
 
 asdasdas
 >>>>>>> 5fcff47... tj test
+=======
+
+asdasda
+adasfasad
+asdasfas
+>>>>>>> 3a79987... tj test
