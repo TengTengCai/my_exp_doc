@@ -1,6 +1,7 @@
 # my_exp_doc
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 asdadasasa
 asdasda
@@ -15,3 +16,11 @@ asnlnllkqwemkl;;l
 asdaada
 asdas
 >>>>>>> 82d11ba... test
+=======
+asdadasasa
+asdasda
+afsafa
+
+
+asdasdas
+>>>>>>> e8412bd... master test
