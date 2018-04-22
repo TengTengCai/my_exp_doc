@@ -66,7 +66,7 @@
 [tianjun@localhost test]$ git config --global user.email 1021766585@qq.com
 ```
 
-## git remote add origin \<server\>
+## git remote add origin &lt;server&gt;
 
 设置远端仓库地址，可以将本地仓库与远程服务器进行链接
 
@@ -96,7 +96,7 @@
 > ```
 >
 
-## git push -u origin \<branch\>
+## git push -u origin &lt;branch&gt;
 
 将本地仓库的参数分支推送到远端仓库中
 
@@ -114,7 +114,7 @@ To https://github.com/TengTengCai/test.git
 分支 master 设置为跟踪来自 origin 的远程分支 master。
 ```
 
-## git checkout -b \<branch\>
+## git checkout -b &lt;branch&gt;
 
 在本地新建一个分支，并切换到新建分支
 
@@ -137,7 +137,7 @@ To https://github.com/TengTengCai/test.git
 * ttc
 ```
 
-## git checkout \<branch\>
+## git checkout &lt;branch&gt;
 
 切换分支
 
@@ -148,7 +148,7 @@ To https://github.com/TengTengCai/test.git
 切换到分支 'master'
 ```
 
-## git branch -d \<branch\>
+## git branch -d &lt;branch&gt;
 
 删除分支
 
@@ -159,7 +159,7 @@ git branch -d ttc
 已删除分支 ttc（曾为 d259848）。
 ```
 
-## git diff \<branch1\> \<branch2\>
+## git diff &lt;branch1&gt; &lt;branch2&gt;
 
 比较分支1和分支2的不同
 
@@ -177,7 +177,7 @@ index ce071e8..e69de29 100644
 -This branch is TTC
 ```
 
-## git merge \<branch\> 
+## git merge &lt;branch&gt; 
 
 将参数分支合并到当前分支
 
@@ -262,7 +262,7 @@ To https://github.com/TengTengCai/test.git
  * [new tag]         v0.0.1 -> v0.0.1
 ```
 
-## git push origin --delete \<branch\>
+## git push origin --delete &lt;branch&gt;
 
 删除远端服务器的分支
 
@@ -286,7 +286,7 @@ To https://github.com/TengTengCai/test.git
  - [deleted]         ttc
 ```
 
-## git push origin --delete tag \<版本号\>
+## git push origin --delete tag &lt;版本号&gt;
 
 删除远端服务器的标签
 
@@ -310,6 +310,6 @@ To https://github.com/TengTengCai/test.git
 
 查看缓存
 
-## git stash apply stash@{x} \< 缓存名称\>
+## git stash apply stash@{x} &lt;缓存名称&gt;
 
 应用对应的缓存
