@@ -178,3 +178,134 @@ Available subcommands:
 
 ## 创建一个app
 
+创建一个名字为stu的app
+
+```bash
+(venv) [root@localhost test]# python3 ./myProject/manage.py startapp stu
+(venv) [root@localhost test]# tree myProject/
+myProject/
+├── db.sqlite3
+├── manage.py
+├── myProject
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-36.pyc
+│   │   ├── settings.cpython-36.pyc
+│   │   ├── urls.cpython-36.pyc
+│   │   └── wsgi.cpython-36.pyc
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── stu
+    ├── admin.py
+    ├── apps.py
+    ├── __init__.py
+    ├── migrations
+    │   └── __init__.py
+    ├── models.py
+    ├── tests.py
+    └── views.py
+
+4 directories, 17 files
+```
+
+在项目目录中打开setting.py文件，在INSTALLED_APPS添加对应的app包名
+
+```bash
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'stu.apps.StuConfig',  # 对应app名称下的apps.py内的Config类
+]
+```
+
+然后在stu中新键一个路由文件urls.py,在项目目录中的urls.py去include app的urls文件
+
+```bash
+# stu中新建的urls.py
+(venv) [root@localhost stu]# cat urls.py 
+from django.conf.urls import url
+from stu import views
+
+urlpatterns = [
+    url(r'^test/', views.test)  # 添加应用中方法的路由
+]
+# 项目中的urls.py
+(venv) [root@localhost myProject]# cat urls.py 
+from django.conf.urls import url, include
+from django.contrib import admin
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^stu/', include('stu.urls')),  # 添加app应用的路由
+]
+```
+
+这样APP一个应用就创建完成能够进行访问了
+
+## 连接MySQL
+
+通过pip安装pymysql模块
+
+```bash
+(venv) [root@localhost myProject]# pip install pymysql
+Collecting pymysql
+  Downloading https://files.pythonhosted.org/packages/e5/07/c0f249aa0b7b0517b5843eeab689b9ccc6a6bb0536fc9d95e65901e6f2ac/PyMySQL-0.8.0-py2.py3-none-any.whl (83kB)
+    100% |████████████████████████████████| 92kB 104kB/s 
+Installing collected packages: pymysql
+Successfully installed pymysql-0.8.0
+```
+
+在项目目录中的\_\_init\_\_.py文件中导入pymysql模块
+
+```bash
+(venv) [root@localhost myProject]# cat __init__.py 
+import pymysql
+
+pymysql.install_as_MySQLdb()
+```
+
+在数据库中创建一个新的空数据库
+
+```bash
+MariaDB [(none)]> create database mydb charset utf8;
+Query OK, 1 row affected (0.00 sec)
+```
+
+在项目目录中设置setting.py文件中的DATABASE的值
+
+```bash
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # 使用哪种数据库，这里使用的是mysql
+        'NAME': 'mydb',  # 数据库名称
+        'HOST': 'localhost',  # 数据库主机地址
+        'POST': '3306',  # 端口号
+        'USER': 'root',  # 用户
+        'PASSWORD': '123456',  # 密码
+     }
+}
+```
+
+配置完成，运行项目查看是否能成功运行
+
+```bash
+(venv) [root@localhost myProject]# python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+
+April 24, 2018 - 21:04:31
+Django version 1.11, using settings 'myProject.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+```
+
+成功连接数据库
