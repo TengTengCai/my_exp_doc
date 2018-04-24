@@ -1,6 +1,8 @@
 # 笔记导航
 总结学习工作中的经验与知识
 
+## [Django](https://github.com/TengTengCai/my_exp_doc/tree/master/Django)
+
 ## [Git](https://github.com/TengTengCai/my_exp_doc/tree/master/Git)
 
 ## [Linux](https://github.com/TengTengCai/my_exp_doc/tree/master/Linux)
