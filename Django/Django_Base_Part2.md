@@ -30,5 +30,8 @@
 
 在这里模拟一个简单的项目场景来建立一张E-R实体联系图。学生选课系统
 
-**student** 字段有id，name，sex，birth， 
+**student**表， 字段有id，s_name，s_sex，s_birth， g_id外键关联班级表
 
+**grade**表， 字段有id，g_name, 
+
+**course**表， 字段有Id，c_name, 
