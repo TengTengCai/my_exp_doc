@@ -318,6 +318,6 @@ primary_key=True暗示null=False和unique=True。一个对象只允许有一个�
 
 多对多的关系。需要一个位置参数：到模型相关的类，它可以作为与它完全一样的ForeignKey，包括递归和懒惰的关系。相关对象可以添加，删除或使用字段创建RelateManager
 
-###OneToOneField
+### OneToOneField
 
 一对一的关系
