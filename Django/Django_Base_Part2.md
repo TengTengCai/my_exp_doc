@@ -271,3 +271,53 @@ models.DecimalField(max_digits=5, decimal_places=2)
 
 ### error_messages
 
+该error_message参数允许你覆盖该字段将引发的默认消息。传入一个字典，其中包含与要覆盖的错误消息相匹配的密钥。
+
+### primary_key
+
+如果True，这个字段是模型的主键。
+
+如果你没有primary_key=True你在你的模型中指定任何字段，Django会自动添加一个AutoField来保存主键，所以不需要primary_key=True在任何字段上设置，除非你想覆盖默认的主键行为。
+
+primary_key=True暗示null=False和unique=True。一个对象只允许有一个主键。
+
+主键字段是只读的，如果你更改现有对象上主键的值并保存它，则会在旧对象旁边创建一个新对象。
+
+### unique
+
+如果Ture，该字段在整个表格中必须是唯一的。
+
+这是在数据库级和模型验证实施的。如果您尝试在unique字段中保存具有重复值django.db.IntegrityError的模型，则模型的save()方法将引发一个模型。
+
+此选项在除ManyToManyField和OneToOneField以外的所有字段类型中都有效。
+
+请注意，如果unique是True，则不需要指定db_index，因为unique意味着创建索引。
+
+## 关系领域
+
+### ForeignKey
+
+多对一的关系，需要两个位置参数：模型相关的类和on_delete选项.
+
+需要创建一个递归关系，一个与自身有多对一关系的对象
+
+`models.ForeignKey('self', on_delete=models.CASCADE)`
+
+**ForeignKey.on_delete**
+
+当被引用的对象ForeignKey被删除时，Django将模拟on_delete参数指定的SQL约束的行为（在这里设置并不改变数据库中）
+
+- CASCADE  级联删除。Django模拟SQL约束ON DELETE CASCADE的行为，并删除包含ForeignKey的对象
+- PROTECT  通过引发ProtectedError，避免删除引用的对象
+- SET_NULL 设置ForeignKey为null
+- SET_DEFAULT  将ForeignKey设置为其默认值；ForeignKey必须设置默认值。
+- SET()  ForeignKey  将该值设置为传递给的值SET()，或者如果传递了可调用对象，则调用它的结果做为值。
+- DO_NOTHING  不采取行动。如果数据库后端强制执行参照完整性，则这将导致IntegrityError除非您手动将SQL约束添加到数据库字段。
+
+### ManyToManyField
+
+多对多的关系。需要一个位置参数：到模型相关的类，它可以作为与它完全一样的ForeignKey，包括递归和懒惰的关系。相关对象可以添加，删除或使用字段创建RelateManager
+
+###OneToOneField
+
+一对一的关系
