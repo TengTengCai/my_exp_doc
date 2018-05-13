@@ -321,3 +321,76 @@ primary_key=True暗示null=False和unique=True。一个对象只允许有一个�
 ### OneToOneField
 
 一对一的关系
+
+**实例**
+
+下面设计三个表，学生表， 学生额外信息表，班级表，课程表
+
+```python
+class Student(models.Model):
+    name = models.CharField(max_length=10)
+    age = models.IntegerField()
+    sex = models.booleanField()
+    info = models.OneToOneField(StudentInfo)
+    g = models.ForeignKey(Grade)
+    s = models.ManyToManyField(Subject)
+    
+class StudentInfo(models.Model):
+    addr = models.CharField(max_length=100)
+    fathername = models.CharField(max_length=10)
+    mothername = models.CharField(max_length=10)
+    
+class Grade(models.Model):  # 班级表
+	name = models.CharField(max_length=20)
+    class_teacher = models.CharField(max_length=10) 
+    
+class Subject(models.Model):  # 课程表
+    name = models.CharField(max_length=20)
+    describe = models.CharField(max_length=100)
+    num_people = models.IntegerField()
+```
+在上面的关系表中，包含了一对一，一对多，多对多的情况，下面讲解介绍如何使用
+
+**一对一**
+
+- 通过地址找到学生
+
+```python
+info = StudentInfo.object.filter(addr='xxxxxxx').first()
+student = Student.object.filter(info=info)
+```
+
+- 通过学生找地址
+
+```python
+address = Student.object.get(pk=1).info.addr
+```
+
+**一对多**
+
+- 通过学生查班级
+
+```python
+grade_name = Student.object.get(pk=1).g.name
+```
+
+- 通过班级查学生
+
+```python
+students = Grade.object.get(pk=1).student_set.all()
+```
+
+**多对多**
+
+- 通过学生查课程
+
+```python
+subjects = Student.object.get(pk=1).subject_set.all()
+```
+
+- 通过课程查学生
+
+```python
+students = Subject.object.get(pk=1).student_set.all()
+```
+
