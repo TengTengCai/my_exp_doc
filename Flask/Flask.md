@@ -145,19 +145,19 @@ python app.py runserver -h 127.0.0.1 -p 5000 -d
 
 访问服务器
 
-![访问服务器](/img/fangwenfuwuqi.png)
+![访问服务器](https://raw.githubusercontent.com/TengTengCai/my_exp_doc/master/Flask/img/fangwenfuwuqi.png)
 
 当我们将鼠标放在每一行代码时都会出现一个控制台的小图标
 
-![控制台按钮](/img/wangyekongzhitai.png)
+![控制台按钮](https://raw.githubusercontent.com/TengTengCai/my_exp_doc/master/Flask/img/wangyekongzhitai.png)
 
 点击按钮,输入在启动服务器时，显示的PIN值
 
-![输入PIN](/img/shurupin.png)
+![输入PIN](https://raw.githubusercontent.com/TengTengCai/my_exp_doc/master/Flask/img/shurupin.png)
 
 进行调试
 
-![进行调试](/img/kongzhitaishuchu.png)
+![进行调试](https://raw.githubusercontent.com/TengTengCai/my_exp_doc/master/Flask/img/kongzhitaishuchu.png)
 
 
 
