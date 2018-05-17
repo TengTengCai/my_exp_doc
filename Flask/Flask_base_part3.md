@@ -24,6 +24,15 @@ Jinja2默认的几种分割符：
 
 如果变量或属性不存在，将会返回一个未定义的值，默认的行为是打印或迭代计算为空字符串，并且每次操作都会失败。
 
+在Flask中如果需要加载静态文件的URL，有两种实现的方法：
+
+```jinja2
+<link rel='stylesheel' href='/static/css/style.css'>
+<link rel='stylesheel' href='{{ url_for('static', filename='css/style.css') }}'>
+```
+
+
+
 ## 过滤器
 
 变量可以通过过滤器进行修改。过滤器通过管道符合（`|`）与变量分开，并且可以在括号中包含可选参数。可以链接多个过滤器。一个过滤器的输出应用于下一个过滤器。
