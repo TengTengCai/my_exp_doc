@@ -23,12 +23,12 @@ def hello():
 有时候需要接收URL中的参数变量，可以把参数标记为一个变量`<变量名>`，这个部分将会作为命名参数传递给函数。同时还可以限制参数变量的类型`<类型:变量名>`。
 
 ```python
-@app.route('/user/<username>')
+@app.route('/user/<username>/')
 def show_user_info(username):
     # 进行数据查询的代码
     return 'User %s' % username
 
-@app.route('/post/<int:aritle_id>')
+@app.route('/post/<int:aritle_id>/')
 def show_article(aritle_id):
     # 进行数据查询的代码
     return 'Aritle ID : %s' % aritle_id
@@ -209,7 +209,7 @@ Flask把返回值转换为响应对象的过程：
 1. 如果返回的是一个正确的响应对象，它会从视图直接返回。
 2. 如果返回的是一个字符串，响应对象会用字符串数据和默认参数创建。
 3. 如果返回的是一个元组，且元组中的元素可以提供额外的信息。这样的元组必须是`(response, status, headers)`的形式, 且至少包含一个元素。status值会覆盖状态代码，headers可以是一个列表或字典，作为额外的消息标头值。
-4. 如果上述条件均不满足，Flask会假设返回值是一个合法的WSGI应用程序，并转化为一个请求对象。（所以经常会看到关于WSGI的代码报错，实则是response响应出错了）
+4. 如果上述条件均不满足，Flask会假设返回值是一个不合法的WSGI应用程序，并转化为一个请求对象。（所以经常会看到关于WSGI的代码报错，实则是response响应出错了）
 
 在视图中可以使用`make_response()`函数。使用前需要导入对应模块
 
