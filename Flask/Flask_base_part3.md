@@ -137,7 +137,7 @@ Jinja2默认的几种分割符：
 
 ```jinja2
 <dl>
-{% for key, value in my_dict.iter %}
+{% for key, value in my_dict.iteritems() %}
 	<dt>{{ key }}</dt>
 	<dd>{{ value }}</dd>
 {% endfor %}
@@ -190,7 +190,7 @@ Jinja2默认的几种分割符：
 
 ## Macros
 
-宏与常规编程语言中的函数具有可比性。将常用惯用语放入可重复使用的函数中，以便不重复干同样的事情。
+宏与常规编程语言中的函数具有可比性。将常用惯用语放入可重复使用的函数中，以避免重复干同样的事情。
 
 ```jinja2
 {% macro input(name, value='', type='text', size=20) -%}
