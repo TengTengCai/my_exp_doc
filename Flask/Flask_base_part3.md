@@ -70,10 +70,10 @@ Jinja2默认的几种分割符：
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <title>{% block title %}{% endblock %}</title>
     {% block extCSS %}
-		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% endblock %}
 </head>
 <body>
