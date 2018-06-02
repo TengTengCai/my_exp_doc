@@ -4,7 +4,7 @@
 
 ## 一、MongoDB在Linux环境下的安装
 
-​	进入MongoDB数据库的[官网]:https://www.mongodb.com/找到社区版Mongo服务的Linux系统下的安装包，由于我使用的是CentOS 7,所以下载的是RedHat版本的MongoDB 3.6.3
+​	进入MongoDB数据库的[官网]:https://www.mongodb.com/找到社区版Mongo服务的Linux系统下的安装包，由于我使用的是CentOS 7,所以下载的是RedHat版本的MongoDB 3.6.5（不同版本可能会有些小差异）
 
 > 资源包下载地址：https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-3.6.5.tgz
 
@@ -81,7 +81,9 @@ setParameter:
 [tianjun@localhost ~]$ source .bash_profile  # 加载环境变量
 ```
 
-三、启动mongod服务
+##三、启动和关闭mongod服务
+
+启动
 
 ```bash
 [tianjun@localhost mongoConfig]$ mongod -f mongod.conf 
@@ -90,7 +92,39 @@ forked process: 5956
 child process started successfully, parent exiting
 ```
 
-启动成功
+关闭
+
+```bash
+[root@VM_186_206_centos mongoConfig]# mongod -f mongod.conf --shutdown
+killing process with pid: 5956
+```
+
+
+
+## 四、数据库安全配置
+
+进入mongo客户端，输入一下类容设置全局用户
+
+```javascript
+use admin
+db.createUser(
+  {
+    user: "myUserAdmin",
+    pwd: "abc123",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+```
+
+重新启动服务
+
+```bash
+[tianjun@localhost mongoConfig]$ mongod -f mongod.conf --auth
+about to fork child process, waiting until server is ready for connections.
+forked process: 21334
+child process started successfully, parent exiting
+```
+
 
 
 
