@@ -116,6 +116,8 @@ db.createUser(
 )
 ```
 
+详细的roles规则请查看mongo[官方文档](https://docs.mongodb.com/manual/reference/built-in-roles/index.html)
+
 重新启动服务
 
 ```bash
